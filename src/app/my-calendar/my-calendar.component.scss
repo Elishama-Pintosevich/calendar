@@ -1,0 +1,15 @@
+.demo-inline-calendar-card {
+    width: 100%;
+  }
+  ::ng-deep .mat-calendar-body-selected {
+    background-color: #BFDBFE !important; /* Change background color */
+    // border-radius: 0% !important;
+    color: white; /* Change text color */
+  }
+  .my-bg{
+    background-color: #1D4ED8;
+  }
+  .myButton{
+    background-color: white;
+    color: #D588A6 !important;
+  }

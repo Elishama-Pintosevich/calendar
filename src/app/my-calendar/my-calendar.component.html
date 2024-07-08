@@ -1,0 +1,23 @@
+<div  class="w-100 d-flex justify-content-center align-items-center">
+    <div class="col-lg-3 col-md-5 col-9">
+       <!-- <div dir="rtl" class="text-dark rounded-1 fs-4 p-3 my-bg">
+        לוח שנה למערכת הטלפונית ״דיבורים טובים״
+       </div> -->
+
+        <mat-card class="demo-inline-calendar-card  ">
+            <!-- <mat-card-header [dir]="'rtl'" class="text-light my-bg">
+                <mat-card-title class="pb-3">
+                    לוח שנה למערכת הטלפונית ״דיבורים טובים״
+                </mat-card-title>
+            </mat-card-header> -->
+            <mat-calendar (selectedChange)="dateChanged($event)" [dateClass]="dateClass" [(selected)]="selected"></mat-calendar>
+        </mat-card>
+        <!-- <div dir="rtl" class="d-flex justify-content-between pt-2 fs-5">
+            <div  class="text-light">יום הנבחר: {{ selected | date: 'yyyy/MM/dd'}}</div>
+            <div  class="text-light ps-1">{{status ? 'תפוס' : 'פנוי'}}</div>
+        </div> -->
+        <div  class="d-flex justify-content-center pt-5">
+            <button class="fs-5 p-4 myButton" (click)="addDate()" mat-flat-button >צימר תפוס</button>
+        </div>
+    </div>
+</div>
