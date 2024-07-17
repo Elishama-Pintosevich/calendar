@@ -10,23 +10,40 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AuthComponent } from './auth/auth.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {ReactiveFormsModule} from '@angular/forms'
+import { HttpRequestsService } from './services/http-requests.service';
+import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { BpnService } from './services/data/bpn.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyCalendarComponent,
-    NavBarComponent
+    NavBarComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatButtonModule,
     MatCardModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     provideAnimationsAsync(),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    BpnService
   ],
   bootstrap: [AppComponent]
 })

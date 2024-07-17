@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatCalendar, MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { BpnService } from '../services/data/bpn.service';
+import { HttpRequestsService } from '../services/http-requests.service';
 
 
 
@@ -15,10 +17,15 @@ export class MyCalendarComponent {
   reserveDate: Date[] = []
   status:boolean = false;
 
-  constructor(){
+  constructor(public bpnService: BpnService, private httpReq: HttpRequestsService){
+    
     this.selected = new Date()
     this.dateChanged(this.selected)
+    console.log(bpnService.bpn);
+    httpReq.getDates(bpnService.bpn.bpn).subscribe(data => console.log(data))
+    
   }
+
   someEvent(){
       this.calendar.updateTodaysDate();
   }
