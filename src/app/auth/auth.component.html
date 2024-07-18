@@ -38,8 +38,8 @@
                 
             </mat-card>
             <div  class="d-flex justify-content-center pt-5">
-                <button *ngIf="!loading" type="submit" [disabled]="!userForm.valid"  class="fs-5 p-4 myButton" mat-flat-button>כניסה</button>
-                <mat-spinner color="pink" *ngIf="loading"></mat-spinner>
+                <button *ngIf="!loading" type="submit" [disabled]="!userForm.valid"  class="fs-5 p-4 myButton" mat-fab extended>כניסה</button>
+                <mat-spinner  *ngIf="loading"></mat-spinner>
             </div>
         </form>
     </div>

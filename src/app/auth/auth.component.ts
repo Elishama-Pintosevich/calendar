@@ -31,6 +31,8 @@ export class AuthComponent {
       (data)=>{
         
         this.loading = false
+        console.log('auth');
+        
         console.log(data);
         if (data['password'] == this.userForm.value.password) {
 

@@ -29,6 +29,21 @@ export class HttpRequestsService {
     }))
     
   }
+  postDate(body: any){
+    return this.http.post<{[key: string]: any}>(`https://diburim-tovim-c744ba98a7d6.herokuapp.com/calendar`, body)
+    .pipe(map(response => {
+    
+      return response
+    }))
+
+  }
+  deleteDate(id:number){
+    return this.http.delete<{[key: string]: any}>(`https://diburim-tovim-c744ba98a7d6.herokuapp.com/calendar/${id}`)
+    .pipe(map(response => {
+    
+      return response
+    }))
+  }
   checkUser(phone: any){
     return this.http.get<{[key: string]: any}>(`https://diburim-tovim-c744ba98a7d6.herokuapp.com/userByPhoneNumber/${phone}`)
     .pipe(map(response => {

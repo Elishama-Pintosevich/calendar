@@ -17,7 +17,13 @@
             <div  class="text-light ps-1">{{status ? 'תפוס' : 'פנוי'}}</div>
         </div> -->
         <div  class="d-flex justify-content-center pt-5">
-            <button class="fs-5 p-4 myButton" (click)="addDate()" mat-flat-button >צימר תפוס</button>
+            <button [disabled]="loading" class="fs-5 p-4 myButton" (click)="addDate()" mat-fab extended >
+                <!-- <div class="d-flex"> -->
+                    <mat-icon *ngIf="!loading">calendar_month</mat-icon>
+                    <mat-spinner class="spinner" *ngIf="loading"></mat-spinner> 
+                    <div *ngIf="!loading">{{status ? ' הסר' : ' הוסף'}}</div>
+                <!-- </div> -->
+            </button>
         </div>
         <!-- <div class="text-dark">
             {{bpnService.bpn.bpn}}
