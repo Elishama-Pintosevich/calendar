@@ -19,6 +19,7 @@ import { HttpRequestsService } from './services/http-requests.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BpnService } from './services/data/bpn.service';
+import { LocalStorageService } from './services/data/localStorage.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BpnService } from './services/data/bpn.service';
   providers: [
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
-    BpnService
+    BpnService,
+    LocalStorageService
   ],
   bootstrap: [AppComponent]
 })

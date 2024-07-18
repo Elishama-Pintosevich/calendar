@@ -6,7 +6,7 @@ import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [{ path: 'login', component: AuthComponent },
 { path: 'calendar', component:  MyCalendarComponent, canActivate: [authGuard]},
-{ path: '', redirectTo: 'login', pathMatch: 'full'}];
+{ path: '', redirectTo: 'calendar', pathMatch: 'full'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

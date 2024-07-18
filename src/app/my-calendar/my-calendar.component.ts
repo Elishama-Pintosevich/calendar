@@ -26,7 +26,7 @@ export class MyCalendarComponent {
 
     console.log(bpnService.bpn);
 
-    httpReq.getDates(bpnService.bpn.bpn).subscribe((data) => {
+    httpReq.getDates(bpnService.bpn.phone_number).subscribe((data) => {
       this.reserveDate2 = data['taken_dates']
       this.bpnId = data['id']
       this.dateChanged(this.selected)
@@ -83,7 +83,7 @@ addDate(){
     let body = {
       taken_date: `${date.getFullYear()}-${Number(date.getMonth())+1}-${date.getDate()}`,
       room_number: 0,
-      bpn_id: this.bpnId
+      bpn_id: this.bpnService.bpn.id
     }
     this.loading = true
     this.httpReq.postDate(body).subscribe(data => {

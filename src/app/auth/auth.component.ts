@@ -36,8 +36,8 @@ export class AuthComponent {
         console.log(data);
         if (data['password'] == this.userForm.value.password) {
 
-          this.bpnService.setBpn({bpn: data['bpn'][0]['phone_number']})
-          console.log(data['bpn'][0]['phone_number']);
+          this.bpnService.setBpn({...data['bpn'][0]})
+          console.log(data['bpn'][0]);
           
           this.authService.login();
           this.router.navigate(['calendar'])

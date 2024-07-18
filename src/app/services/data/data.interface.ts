@@ -1,3 +1,4 @@
 export interface Bpn{
-    bpn?: string
+    phone_number?: string,
+    id: number
 }

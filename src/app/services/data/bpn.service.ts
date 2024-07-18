@@ -1,6 +1,7 @@
 
 import { EventEmitter, Injectable } from "@angular/core";
 import { Bpn } from "./data.interface";
+import { LocalStorageService } from "./localStorage.service";
 
 
 
@@ -10,9 +11,12 @@ import { Bpn } from "./data.interface";
 export class BpnService{
     public bpn: Bpn
     
+    constructor(private localStorage: LocalStorageService){}
+
     public setBpn(bpn: Bpn){
         
         this.bpn = bpn
+        this.localStorage.setItem('bpn', bpn)
       }
       
 }
