@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { BpnService } from './services/data/bpn.service';
 import { LocalStorageService } from './services/data/localStorage.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LocalStorageService } from './services/data/localStorage.service';
     provideAnimationsAsync(),
     provideNativeDateAdapter(),
     BpnService,
-    LocalStorageService
+    LocalStorageService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

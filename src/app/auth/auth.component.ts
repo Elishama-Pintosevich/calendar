@@ -25,19 +25,19 @@ export class AuthComponent {
   });
 
   login(){
-    console.log(this.userForm);
+    // console.log(this.userForm);
     this.loading = true
     this.httpReq.checkUser(this.userForm.value.phoneNumber).subscribe(
       (data)=>{
         
         this.loading = false
-        console.log('auth');
+        // console.log('auth');
         
-        console.log(data);
+        // console.log(data);
         if (data['password'] == this.userForm.value.password) {
 
           this.bpnService.setBpn({...data['bpn'][0]})
-          console.log(data['bpn'][0]);
+          // console.log(data['bpn'][0]);
           
           this.authService.login();
           this.router.navigate(['calendar'])
@@ -48,7 +48,7 @@ export class AuthComponent {
         
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
         this.loading = false
         this.validUser=false
         

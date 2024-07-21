@@ -24,20 +24,20 @@ export class MyCalendarComponent {
     this.selected = new Date()
     
 
-    console.log(bpnService.bpn);
+    // console.log(bpnService.bpn);
 
-    httpReq.getDates(bpnService.bpn.phone_number).subscribe((data) => {
+    httpReq.getDates(bpnService.getBpn()['phone_number']).subscribe((data) => {
       this.reserveDate2 = data['taken_dates']
       this.bpnId = data['id']
       this.dateChanged(this.selected)
       this.someEvent()
-      console.log(this.bpnId);
+      // console.log(this.bpnId);
       
       
       
     })
     
-    console.log(this.selected);
+    // console.log(this.selected);
     
     
   }
@@ -65,7 +65,7 @@ dateChanged(event:any) {
     return Number(fix_date[2]) == event.getDate() && Number(fix_date[0]) == event.getFullYear() && Number(fix_date[1])-1 == event.getMonth()
   })
   this.status = result
-  console.log(this.status);
+  // console.log(this.status);
   
 }
 isReserveDate(selectedDate: Date){
@@ -83,12 +83,12 @@ addDate(){
     let body = {
       taken_date: `${date.getFullYear()}-${Number(date.getMonth())+1}-${date.getDate()}`,
       room_number: 0,
-      bpn_id: this.bpnService.bpn.id
+      bpn_id: this.bpnService.getBpn()['id']
     }
     this.loading = true
     this.httpReq.postDate(body).subscribe(data => {
 
-      console.log(data)
+      // console.log(data)
       this.reserveDate2.push(data)
       this.dateChanged(this.selected)
       this.someEvent()
@@ -112,13 +112,13 @@ addDate(){
     this.reserveDate2 = list_without_id
     this.loading = true
     this.httpReq.deleteDate(id_of_date[0]['id']).subscribe(data => {
-      console.log(data)
+      // console.log(data)
       this.loading = false
     }, err => this.loading=false)
-    console.log(id_of_date);
+    // console.log(id_of_date);
     
   }
-  console.log(this.reserveDate2);
+  // console.log(this.reserveDate2);
   this.dateChanged(this.selected)
   this.someEvent()
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './data/localStorage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,8 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   private isAuthenticated = false;
+
+  constructor(private localStorage: LocalStorageService){}
 
   login() {
     this.isAuthenticated = true;
@@ -16,6 +19,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    return this.isAuthenticated  || this.localStorage.hasItem('bpn');
   }
 }
